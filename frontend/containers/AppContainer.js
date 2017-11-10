@@ -1,12 +1,14 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import Title from '../components/Title';
+import Header from '../components/Header';
+import Trigger from '../components/Loginmodal';
 
-const AppContainer = ({ name }) => {
+const AppContainer = ({ }) => {
     return (
         <div>
-            <Title name={name} />
+            <Header />
+            <Trigger />
         </div>
     );
 };
