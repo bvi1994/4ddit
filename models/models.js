@@ -40,11 +40,6 @@ var User = sequelize.define('user', {
 var Thread = sequelize.define('thread', {
   // The author key would be from the username as a foreign key
   // Remember that the thread ID is generated automatically
-    author: {
-        type: Sequelize.STRING,
-        allownull: false,
-        // foreignKeyConstraint: true
-    },
     content: {
         type: Sequelize.STRING,
         allownull: false,
@@ -89,6 +84,11 @@ var Comment = sequelize.define('comment', {
         type: Sequelize.INTEGER,
     }
 });
+
+User.hasMany(Thread, { as: 'children', foreignKey: 'threadId' });
+Thread.belongsTo(User, { as: 'children', foreignKey: 'threadId' });
+Thread.hasMany(Comment, { as: 'children', foreignKey: 'commentId' });
+Comment.belongsTo(Thread, { as: 'children', foreignKey: 'commentId' });
 
 module.exports = {
     User,

@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import Title from '../components/Title';
+import Header from '../components/Header';
 
 const AppContainer = ({ name }) => {
     return (
         <div>
-            <Title name={name} />
+            <Header name={name} />
         </div>
     );
 };
@@ -17,7 +17,7 @@ AppContainer.propTypes = {
 
 const mapStateToProps = (state) => {
     return {
-        name: state.name
+        name: state.title.name
     };
 };
 
