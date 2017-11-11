@@ -11,6 +11,7 @@ const AppContainer = ({ }) => {
             <Title name={name} />
             <Header/>
             <Trigger />
+            <Header name={name} />
         </div>
     );
 };
@@ -21,7 +22,7 @@ AppContainer.propTypes = {
 
 const mapStateToProps = (state) => {
     return {
-        name: state.name
+        name: state.title.name
     };
 };
 

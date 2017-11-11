@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3000;
 const api = require('./backend/routes');
 const bodyParser = require('body-parser');
 const models = require('./models/models');
-
+const auth = require('./backend/auth');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 
@@ -61,6 +61,7 @@ app.get('/', (request, response) => {
     response.sendFile(__dirname + '/public/index.html'); // For React/Redux
 });
 
+app.use('/api', auth(passport));
 app.use('/api', api);
 
 app.listen(PORT, error => {
